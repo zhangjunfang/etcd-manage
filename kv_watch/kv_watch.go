@@ -53,6 +53,7 @@ func Watcher_watch() {
 }
 
 func Watcher_watch_range() {
+	fmt.Println(cli)
 	defer cli.Close()
 	go func() {
 		watchChan := cli.Watch(context.TODO(), "foo", clientv3.WithRange("foo16"))
