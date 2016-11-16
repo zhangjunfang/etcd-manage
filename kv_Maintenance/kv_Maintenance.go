@@ -39,18 +39,18 @@ func KV_Maintenance_alarmlist() {
 //解除告警信息
 func KV_Maintenance_alarmDisarm() {
 	defer cli.Close()
-	//	main := clientv3.NewMaintenance(cli)
-	//	res, _ := main.AlarmList(context.TODO())
-	//	for _, m := range cli.Endpoints() {
-	//		status, _ := main.Status(context.TODO(), m)
-	//		for _, v := range res.Alarms {
-	//			fmt.Println(v.Alarm, v.MemberID)
-	//			if status.Header.MemberId == v.MemberID {
-	//				main.AlarmDisarm(context.TODO(), v)
-	//			}
+	main := clientv3.NewMaintenance(cli)
+	res, _ := main.AlarmList(context.TODO())
+	for _, m := range cli.Endpoints() {
+		status, _ := main.Status(context.TODO(), m)
+		for _, v := range res.Alarms {
+			fmt.Println(v.Alarm, v.MemberID)
+			if status.Header.MemberId == v.MemberID {
+				main.AlarmDisarm(context.TODO(), v)
+			}
 
-	//		}
-	//	}
+		}
+	}
 
 }
 

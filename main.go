@@ -1,10 +1,6 @@
 package main
 
-import (
-	"fmt"
-
-	"github.com/zhangjunfang/etcd-manage/kv_Maintenance"
-)
+import "fmt"
 
 //"github.com/zhangjunfang/etcd-manage/kv_watch"
 //"github.com/zhangjunfang/etcd-manage/kv_watch"
@@ -30,5 +26,5 @@ func main() {
 	//kv_Maintenance.KV_Maintenance_status()
 	//kv_Maintenance.KV_Maintenance_alarmlist()
 	//kv_Maintenance.KV_Maintenance_defragment()
-	kv_Maintenance.KV_Maintenance_alarmDisarm()
+	//kv_Maintenance.KV_Maintenance_alarmDisarm()
 }
