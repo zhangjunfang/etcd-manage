@@ -1,14 +1,13 @@
-package v3
+package etcd_queue
 
 import (
 	"os"
-	"strings"
 
 	"github.com/sony/sonyflake"
 )
 
 const (
-	prefix = "/etcd-lock"
+	prefix = "/queue/"
 )
 
 var sf *sonyflake.Sonyflake
@@ -22,10 +21,7 @@ func init() {
 		panic("sonyflake not created")
 	}
 }
-func addPrefix(key string) string {
-	if !strings.HasPrefix(key, "/") {
-		key = "/" + key
-	}
+func addPrefix() string {
 	id, _ := sf.NextID()
-	return prefix + key + id
+	return prefix + id
 }
