@@ -5,6 +5,7 @@ import (
 	"strings"
 
 	"github.com/sony/sonyflake"
+	"github.com/zhangjunfang/etcd-manage/util"
 )
 
 const (
@@ -15,8 +16,8 @@ var sf *sonyflake.Sonyflake
 
 func init() {
 	var st sonyflake.Settings
-	name, _ := os.Hostname()
-	st.MachineID = name
+
+	st.MachineID = util.Lower16BitPrivateIP
 	sf = sonyflake.NewSonyflake(st)
 	if sf == nil {
 		panic("sonyflake not created")
